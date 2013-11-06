@@ -1,0 +1,396 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff0099ff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+         android:layout_weight="8.5" >
+
+        <TextView
+            android:id="@+id/TextView05"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="" />
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="9.6"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox01"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 1"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox02"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 2"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+
+                
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox03"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 3"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+
+                </LinearLayout>
+                
+                    <TextView
+                    android:id="@+id/textView03"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox04"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 4"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/Button04"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+                </LinearLayout>
+                
+                  <TextView
+                    android:id="@+id/textView04"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                  
+                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox05"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 5"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/Button05"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+                </LinearLayout>
+                
+                  <TextView
+                    android:id="@+id/textView06"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                  
+                          <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox06"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 6"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/Button06"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+                </LinearLayout>
+                
+                  <TextView
+                    android:id="@+id/textView06"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+               
+                  <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox07"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 7"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/Button07"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+                </LinearLayout>
+                
+                  <TextView
+                    android:id="@+id/textView07"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                  
+                  <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox08"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 8"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/Button08"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+                </LinearLayout>
+                
+                  <TextView
+                    android:id="@+id/textView08"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                  
+                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox09"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:checked="true"
+                        android:background="#ffffffff"
+                        android:text="Favorit Menu 9"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/Button09"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:text=">" />
+                </LinearLayout>
+                
+                  <TextView
+                    android:id="@+id/textView09"
+                    android:background="#ffe9e9e9"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+               
+                
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="" />
+
+    </LinearLayout>
+
+    
+     
+    
+    
+ <!-- Start of Bottom 4 buttons  -->
+ <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5" >
+
+        <Button
+            android:id="@+id/diningHall_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="24"
+            android:background="#ffcccc00"
+            android:text="Dining\nHall"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextView00"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6"
+            android:background="#ffe3e300"
+            android:ems="10"
+            android:text="" />
+
+        <Button
+            android:id="@+id/meal_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="24"
+            android:background="#ffcccc00"
+            android:text="Meal"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6"
+            android:background="#ffe3e300"
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/allMenu_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="24"
+            android:background="#ffcccc00"
+            android:text="All\nMenu"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6"
+            android:background="#ffe3e300"
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/favorit_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="24"
+            android:background="#ffcccc00"
+            android:text="Favorit"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+ <!-- End of Bottom 4 buttons  -->
+
+</LinearLayout>

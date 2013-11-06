@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff0099ff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_weight="0.77"
+        android:background="#ff1090ff" >
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="79dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+
+        <Button
+            android:id="@+id/covelcommon_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.25"
+            android:background="#ffffffff"
+            android:text="Covel\nCommon" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="" />
+
+        <Button
+            android:id="@+id/deneve_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.25"
+            android:background="#ffffffff"
+            android:text="De Neve" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#ff1090ff" >
+
+    </LinearLayout>
+
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="79dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+
+        <Button
+            android:id="@+id/bruinplate_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.25"
+            android:background="#ffffffff"
+            android:text="Bruin\nPlate" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="" />
+
+        <Button
+            android:id="@+id/hedrick_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.25"
+            android:textSize="15dp"
+            android:background="#ffffffff"
+            android:text="Test Kitchen\nat\nHEDRICK" />
+        
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+
+    </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="20dp"
+     android:layout_weight="0.02"
+     android:background="#ff1090ff" >
+
+ </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="79dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+
+        <Button
+            android:id="@+id/reiber_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.25"
+            android:background="#ffffffff"
+            android:text="FEAST at\nREIBER" />
+         <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="" />
+          <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.25"
+            android:text="" />
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#ff1090ff"
+        android:layout_height="38dp" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5" >
+
+        <Button
+            android:id="@+id/diningHall_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="24"
+            android:background="#ffcccc00"
+            android:text="Dining\nHall"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextView00"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6"
+            android:background="#ffe3e300"
+            android:ems="10"
+            android:text="" />
+
+        <Button
+            android:id="@+id/meal_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="24"
+            android:background="#ffcccc00"
+            android:text="Meal"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6"
+            android:background="#ffe3e300"
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/allMenu_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="24"
+            android:background="#ffcccc00"
+            android:text="All\nMenu"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6"
+            android:background="#ffe3e300"
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/favorit_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="24"
+            android:background="#ffcccc00"
+            android:text="Favorit"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
