@@ -19,6 +19,17 @@
        android:layout_width="fill_parent"
        android:layout_height="0dp"
        android:layout_weight="1.2" >
+       
+       <Button
+           android:id="@+id/home_button"
+           android:layout_width="0dp"
+           android:layout_height="fill_parent"
+           android:layout_weight="24"
+           android:background="#fffdfd70"
+           android:text="@string/home"
+           android:textColor="#ff000000"
+           android:textSize="15sp"
+           android:textStyle="bold" />
 
         <Button
              android:id="@+id/diningHall_button"
@@ -42,17 +53,8 @@
            android:textSize="13sp"
            android:textStyle="bold" />
 
-       <Button
-           android:id="@+id/home_button"
-           android:layout_width="0dp"
-           android:layout_height="fill_parent"
-           android:layout_weight="24"
-           android:background="#fffdfd70"
-           android:text="@string/home"
-           android:textColor="#ff000000"
-           android:textSize="15sp"
-           android:textStyle="bold" />
-
+       
+<!--  
    		<Button
            android:id="@+id/allMenu_button"
            android:layout_width="0dp"
@@ -62,7 +64,8 @@
            android:text="@string/all_dishes"
            android:textColor="#ff000000"
            android:textSize="13sp"
-           android:textStyle="bold" />
+           android:textStyle="bold" /> 
+           -->
 
        <Button
            android:id="@+id/favorite_button"

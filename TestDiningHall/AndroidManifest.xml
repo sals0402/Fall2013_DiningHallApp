@@ -26,10 +26,10 @@
         <activity    
             android:name="com.example.testdininghall.MealActivity"
             android:label="Meals" ></activity>
-        
+        <!--  
         <activity    
             android:name="com.example.testdininghall.AllMenuActivity"
-           	android:label="All Dishes" ></activity>
+           	android:label="All Dishes" ></activity> -->
           
         <activity    
             android:name="com.example.testdininghall.FavoriteActivity"

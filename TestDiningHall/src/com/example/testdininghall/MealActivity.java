@@ -19,20 +19,21 @@ import android.widget.ListView;
 public class MealActivity extends Activity implements OnClickListener{
 
 	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn, home_btn;
-	Button breakfast_btn,lunch_btn,dinner_btn;
+	Button all_btn, breakfast_btn,lunch_btn,dinner_btn;
 	MyCustomAdapter dataAdapter = null;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meal);
-        displayListView("breakfast"); //default is set to display breakfast page.
+        displayListView("all"); //default is set to display breakfast page.
 
         home_btn=(Button)findViewById(R.id.home_button);
         diningHall_btn=(Button)findViewById(R.id.diningHall_button);
         meal_btn=(Button)findViewById(R.id.meal_button);
-        allMenu_btn=(Button)findViewById(R.id.allMenu_button);
+//        allMenu_btn=(Button)findViewById(R.id.allMenu_button);
         favorite_btn=(Button)findViewById(R.id.favorite_button);
+        all_btn=(Button)findViewById(R.id.all_button);
         breakfast_btn=(Button)findViewById(R.id.breakfast_button);
         lunch_btn=(Button)findViewById(R.id.lunch_button);
         dinner_btn=(Button)findViewById(R.id.dinner_button);
@@ -40,8 +41,9 @@ public class MealActivity extends Activity implements OnClickListener{
         home_btn.setOnClickListener(this);
         diningHall_btn.setOnClickListener(this);
         meal_btn.setOnClickListener(this);
-        allMenu_btn.setOnClickListener(this);
+  //      allMenu_btn.setOnClickListener(this);
         favorite_btn.setOnClickListener(this);
+        all_btn.setOnClickListener(this);
         breakfast_btn.setOnClickListener(this);
         lunch_btn.setOnClickListener(this);
         dinner_btn.setOnClickListener(this);
@@ -64,6 +66,7 @@ public class MealActivity extends Activity implements OnClickListener{
 	    breakfast_btn=(Button)findViewById(R.id.breakfast_button);
 	    lunch_btn=(Button)findViewById(R.id.lunch_button);
 	    dinner_btn=(Button)findViewById(R.id.dinner_button);
+	    all_btn = (Button)findViewById(R.id.all_button);
 	    
 		if (clickedBtnId == R.id.diningHall_button){
 			Intent ToDiningHall = new Intent (this, DiningHallActivity.class);
@@ -74,11 +77,11 @@ public class MealActivity extends Activity implements OnClickListener{
 			Intent ToMeal1 = new Intent (this, MealActivity.class);
 			startActivity(ToMeal1);
 		}
-		
+	/*	
 		else if (clickedBtnId == R.id.allMenu_button){
 			Intent ToAllMenu = new Intent (this, AllMenuActivity.class);
 			startActivity(ToAllMenu);
-		}
+		}*/
 		
 		else if (clickedBtnId == R.id.favorite_button){
 			Intent ToFavorite = new Intent (this, FavoriteActivity.class);
@@ -91,8 +94,19 @@ public class MealActivity extends Activity implements OnClickListener{
 			startActivity(ToHome);
 		}
 		
+		else if (clickedBtnId == R.id.all_button)
+		{
+			all_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
+	        breakfast_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        lunch_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        dinner_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        displayListView("all");
+		}
+		
+		
 		else if (clickedBtnId == R.id.breakfast_button){   //you can see value of those colors at in folder values/style.xml
-	        breakfast_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
+			all_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+			breakfast_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
 	        lunch_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        dinner_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        displayListView("breakfast");
@@ -100,6 +114,7 @@ public class MealActivity extends Activity implements OnClickListener{
 		
 		
 		else if (clickedBtnId == R.id.lunch_button){
+			all_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        breakfast_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        lunch_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
 	        dinner_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
@@ -107,6 +122,7 @@ public class MealActivity extends Activity implements OnClickListener{
 		}
 		
 		else if (clickedBtnId == R.id.dinner_button){
+			all_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        breakfast_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        lunch_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        dinner_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
@@ -132,7 +148,15 @@ public class MealActivity extends Activity implements OnClickListener{
 		
 		int i;
 		
-		if(mealTime.equals("breakfast")) //put breakfast menuItems into menuItemList
+		if(mealTime.equals("all"))
+		{
+			for(i=0; i<menuDatabase.getDatabaseSize();i++){
+				menuItem = menuDatabase.getMenuItem(i);
+				menuItemList.add(menuItem); //display all menu in the database to the screen	
+			}
+		}
+		
+		else if(mealTime.equals("breakfast")) //put breakfast menuItems into menuItemList
 		{
 			for(i=0; i<menuDatabase.getDatabaseSize();i++){
 				menuItem = menuDatabase.getMenuItem(i);
