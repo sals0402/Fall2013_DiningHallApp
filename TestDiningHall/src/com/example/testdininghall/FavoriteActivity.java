@@ -18,10 +18,7 @@ import android.widget.ListView;
 
 public class FavoriteActivity extends Activity implements OnClickListener{
 
-	Button diningHall_btn;
-	Button meal_btn;
-	Button allMenu_btn;
-	Button favorite_btn;
+	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn, home_btn;
 	MyCustomAdapter dataAdapter = null;
 	
     @Override
@@ -30,16 +27,16 @@ public class FavoriteActivity extends Activity implements OnClickListener{
         setContentView(R.layout.favorite);
         displayListView();
         
+        home_btn=(Button)findViewById(R.id.home_button); 
         diningHall_btn=(Button)findViewById(R.id.diningHall_button);
-        diningHall_btn.setOnClickListener(this);
-        
-        meal_btn=(Button)findViewById(R.id.meal_button);
-        meal_btn.setOnClickListener(this);
-        
+        meal_btn=(Button)findViewById(R.id.meal_button); 
         allMenu_btn=(Button)findViewById(R.id.allMenu_button);
-        allMenu_btn.setOnClickListener(this);
-        
         favorite_btn=(Button)findViewById(R.id.favorite_button);
+  
+        home_btn.setOnClickListener(this);
+        diningHall_btn.setOnClickListener(this);
+        meal_btn.setOnClickListener(this);
+        allMenu_btn.setOnClickListener(this);
         favorite_btn.setOnClickListener(this);
     }
 
@@ -80,6 +77,14 @@ public class FavoriteActivity extends Activity implements OnClickListener{
 			Intent ToFavorite = new Intent (this, FavoriteActivity.class);
 			startActivity(ToFavorite);
 		}
+		
+		else if (clickedBtnId == R.id.home_button)
+		{
+			Intent ToHome = new Intent (this, HomeActivity.class);
+			startActivity(ToHome);
+		}
+		
+		
 	}
 	
 	private void displayListView() {

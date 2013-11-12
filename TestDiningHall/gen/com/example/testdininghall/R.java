@@ -32,10 +32,7 @@ public final class R {
     public static final class id {
         public static final int LinearLayout1=0x7f090000;
         public static final int LinearLayout2=0x7f090018;
-        public static final int TextView00=0x7f09001b;
-        public static final int TextView01=0x7f09001c;
-        public static final int TextView02=0x7f09001d;
-        public static final int action_settings=0x7f09001e;
+        public static final int action_settings=0x7f09001b;
         public static final int allMenu_button=0x7f090006;
         public static final int back_button=0x7f090017;
         public static final int breakfast_button=0x7f090013;
@@ -46,7 +43,7 @@ public final class R {
         public static final int dinner_button=0x7f090015;
         public static final int favorite_button=0x7f090007;
         public static final int hedrick_button=0x7f090010;
-        public static final int home=0x7f090005;
+        public static final int home_button=0x7f090005;
         public static final int info_checkbox=0x7f090016;
         public static final int info_textView=0x7f09001a;
         public static final int linearLayout1=0x7f090002;

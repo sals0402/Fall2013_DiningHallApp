@@ -20,7 +20,7 @@ import android.widget.ListView;
 
 public class DiningHallActivity extends Activity implements OnClickListener{
 
-	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn;
+	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn, home_btn;
 	Button covelCommons_btn, deNeve_btn, bruinPlate_btn, reiber_btn, hedrick_btn;
 	MyCustomAdapter dataAdapter = null;
 	
@@ -30,6 +30,10 @@ public class DiningHallActivity extends Activity implements OnClickListener{
         setContentView(R.layout.dininghall);
         displayListView("Covel Commons");
         
+        
+        
+        
+        home_btn=(Button)findViewById(R.id.home_button);
         diningHall_btn=(Button)findViewById(R.id.diningHall_button);
         meal_btn=(Button)findViewById(R.id.meal_button);
         allMenu_btn=(Button)findViewById(R.id.allMenu_button);
@@ -40,7 +44,7 @@ public class DiningHallActivity extends Activity implements OnClickListener{
         reiber_btn=(Button)findViewById(R.id.reiber_button);
         hedrick_btn=(Button)findViewById(R.id.hedrick_button);
         
-        
+        home_btn.setOnClickListener(this);
         diningHall_btn.setOnClickListener(this);
         meal_btn.setOnClickListener(this);
         allMenu_btn.setOnClickListener(this);
@@ -67,6 +71,7 @@ public class DiningHallActivity extends Activity implements OnClickListener{
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		int clickedBtnId=arg0.getId();
+		//get button information of 5 dining hall buttons so I can change their background color
         covelCommons_btn=(Button)findViewById(R.id.covelCommons_button);
         deNeve_btn=(Button)findViewById(R.id.deNeve_button);
         bruinPlate_btn=(Button)findViewById(R.id.bruinPlate_button);
@@ -95,6 +100,12 @@ public class DiningHallActivity extends Activity implements OnClickListener{
 		{
 			Intent ToFavorite = new Intent (this, FavoriteActivity.class);
 			startActivity(ToFavorite);
+		}
+		
+		else if (clickedBtnId == R.id.home_button)
+		{
+			Intent ToHome = new Intent (this, HomeActivity.class);
+			startActivity(ToHome);
 		}
 		
 		else if (clickedBtnId == R.id.covelCommons_button){  //you can see value of those colors at in folder values/style.xml

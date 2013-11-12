@@ -18,7 +18,7 @@ import android.widget.ListView;
 
 public class MealActivity extends Activity implements OnClickListener{
 
-	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn;
+	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn, home_btn;
 	Button breakfast_btn,lunch_btn,dinner_btn;
 	MyCustomAdapter dataAdapter = null;
 	
@@ -27,7 +27,8 @@ public class MealActivity extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meal);
         displayListView("breakfast"); //default is set to display breakfast page.
-        
+
+        home_btn=(Button)findViewById(R.id.home_button);
         diningHall_btn=(Button)findViewById(R.id.diningHall_button);
         meal_btn=(Button)findViewById(R.id.meal_button);
         allMenu_btn=(Button)findViewById(R.id.allMenu_button);
@@ -36,7 +37,7 @@ public class MealActivity extends Activity implements OnClickListener{
         lunch_btn=(Button)findViewById(R.id.lunch_button);
         dinner_btn=(Button)findViewById(R.id.dinner_button);
         
-        
+        home_btn.setOnClickListener(this);
         diningHall_btn.setOnClickListener(this);
         meal_btn.setOnClickListener(this);
         allMenu_btn.setOnClickListener(this);
@@ -84,12 +85,19 @@ public class MealActivity extends Activity implements OnClickListener{
 			startActivity(ToFavorite);
 		}
 		
+		else if (clickedBtnId == R.id.home_button)
+		{
+			Intent ToHome = new Intent (this, HomeActivity.class);
+			startActivity(ToHome);
+		}
+		
 		else if (clickedBtnId == R.id.breakfast_button){   //you can see value of those colors at in folder values/style.xml
 	        breakfast_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
 	        lunch_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        dinner_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
 	        displayListView("breakfast");
 		}
+		
 		
 		else if (clickedBtnId == R.id.lunch_button){
 	        breakfast_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);

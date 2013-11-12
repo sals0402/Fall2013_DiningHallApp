@@ -14,10 +14,7 @@ import android.widget.TextView;
 
 public class MenuInfoActivity extends Activity implements OnClickListener{
 
-	Button diningHall_btn;
-	Button meal_btn;
-	Button allMenu_btn;
-	Button favorite_btn;
+	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn, home_btn;
 	Button back_btn;
 	
     @Override
@@ -33,21 +30,18 @@ public class MenuInfoActivity extends Activity implements OnClickListener{
         CheckBox menuInfo_checkbox = (CheckBox) findViewById(R.id.info_checkbox);
         TextView menuInfo_textView= (TextView) findViewById(R.id.info_textView);
         
-        
-        
+        home_btn=(Button)findViewById(R.id.home_button); 
         diningHall_btn=(Button)findViewById(R.id.diningHall_button);
-        diningHall_btn.setOnClickListener(this);
-        
-        meal_btn=(Button)findViewById(R.id.meal_button);
-        meal_btn.setOnClickListener(this);
-        
+        meal_btn=(Button)findViewById(R.id.meal_button); 
         allMenu_btn=(Button)findViewById(R.id.allMenu_button);
-        allMenu_btn.setOnClickListener(this);
-        
         favorite_btn=(Button)findViewById(R.id.favorite_button);
-        favorite_btn.setOnClickListener(this);
-        
         back_btn=(Button)findViewById(R.id.back_button);
+  
+        home_btn.setOnClickListener(this);
+        diningHall_btn.setOnClickListener(this);
+        meal_btn.setOnClickListener(this);
+        allMenu_btn.setOnClickListener(this);
+        favorite_btn.setOnClickListener(this);
         back_btn.setOnClickListener(this);
       
         //receive name of the menu that we want to display on the screen
@@ -139,6 +133,12 @@ public class MenuInfoActivity extends Activity implements OnClickListener{
 		{
 			Intent ToFavorit = new Intent (this, FavoriteActivity.class);
 			startActivity(ToFavorit);
+		}
+		
+		else if (clickedBtnId == R.id.home_button)
+		{
+			Intent ToHome = new Intent (this, HomeActivity.class);
+			startActivity(ToHome);
 		}
 		
 		else if (clickedBtnId == R.id.back_button){ //return button

@@ -20,7 +20,7 @@ public class HomeActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
    
-        home_btn=(Button)findViewById(R.id.home);
+        home_btn=(Button)findViewById(R.id.home_button);
         home_btn.setOnClickListener(this);
         
         diningHall_btn=(Button)findViewById(R.id.diningHall_button);
@@ -64,6 +64,13 @@ public class HomeActivity extends Activity implements OnClickListener {
 			Intent ToFavorite = new Intent (this, FavoriteActivity.class);
 			startActivity(ToFavorite);
 		}
+		
+		else if (clickedBtnId == R.id.home_button)
+		{
+			Intent ToHome = new Intent (this, HomeActivity.class);
+			startActivity(ToHome);
+		}
+		
 		
 	} 
 }
