@@ -1,0 +1,232 @@
+package com.example.testdininghall;
+
+import java.util.ArrayList;
+import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ListView;
+
+public class MealActivity extends Activity implements OnClickListener{
+
+	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn;
+	Button breakfast_btn,lunch_btn,dinner_btn;
+	MyCustomAdapter dataAdapter = null;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.meal);
+        displayListView("breakfast"); //default is set to display breakfast page.
+        
+        diningHall_btn=(Button)findViewById(R.id.diningHall_button);
+        meal_btn=(Button)findViewById(R.id.meal_button);
+        allMenu_btn=(Button)findViewById(R.id.allMenu_button);
+        favorite_btn=(Button)findViewById(R.id.favorite_button);
+        breakfast_btn=(Button)findViewById(R.id.breakfast_button);
+        lunch_btn=(Button)findViewById(R.id.lunch_button);
+        dinner_btn=(Button)findViewById(R.id.dinner_button);
+        
+        
+        diningHall_btn.setOnClickListener(this);
+        meal_btn.setOnClickListener(this);
+        allMenu_btn.setOnClickListener(this);
+        favorite_btn.setOnClickListener(this);
+        breakfast_btn.setOnClickListener(this);
+        lunch_btn.setOnClickListener(this);
+        dinner_btn.setOnClickListener(this);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.dining_hall, menu);
+        return true;
+    }
+
+
+	@SuppressLint("ResourceAsColor")
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		int clickedBtnId=arg0.getId();
+	    breakfast_btn=(Button)findViewById(R.id.breakfast_button);
+	    lunch_btn=(Button)findViewById(R.id.lunch_button);
+	    dinner_btn=(Button)findViewById(R.id.dinner_button);
+	    
+		if (clickedBtnId == R.id.diningHall_button){
+			Intent ToDiningHall = new Intent (this, DiningHallActivity.class);
+			startActivity(ToDiningHall);
+		}
+		
+		else if (clickedBtnId == R.id.meal_button){
+			Intent ToMeal1 = new Intent (this, MealActivity.class);
+			startActivity(ToMeal1);
+		}
+		
+		else if (clickedBtnId == R.id.allMenu_button){
+			Intent ToAllMenu = new Intent (this, AllMenuActivity.class);
+			startActivity(ToAllMenu);
+		}
+		
+		else if (clickedBtnId == R.id.favorite_button){
+			Intent ToFavorite = new Intent (this, FavoriteActivity.class);
+			startActivity(ToFavorite);
+		}
+		
+		else if (clickedBtnId == R.id.breakfast_button){   //you can see value of those colors at in folder values/style.xml
+	        breakfast_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
+	        lunch_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        dinner_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        displayListView("breakfast");
+		}
+		
+		else if (clickedBtnId == R.id.lunch_button){
+	        breakfast_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        lunch_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
+	        dinner_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        displayListView("lunch");
+		}
+		
+		else if (clickedBtnId == R.id.dinner_button){
+	        breakfast_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        lunch_btn.setBackgroundResource(R.color.top_NotSelectedButtonColor);
+	        dinner_btn.setBackgroundResource(R.color.top_SelectedButtonColor);
+	        displayListView("dinner");
+		}
+	}
+	
+	
+	private void displayListView(String mealTime) {
+		
+		MenuItem menuItem;	
+		//list of items that will be display on the listView
+		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();	
+		MenuDatabase menuDatabase = new MenuDatabase(); //fake database that return hard coded data
+		
+		//Initial Information for the item object, we will need to read in from database in the future.
+		String name = "";
+		boolean favorite = false;
+		ArrayList<String> breakfast = null;
+		ArrayList<String> lunch = null;
+		ArrayList<String> dinner = null;
+		ArrayList<String> nutInfo = null;
+		
+		int i;
+		
+		if(mealTime.equals("breakfast")) //put breakfast menuItems into menuItemList
+		{
+			for(i=0; i<menuDatabase.getDatabaseSize();i++){
+				menuItem = menuDatabase.getMenuItem(i);
+				if (!menuItem.getBreakfastDiningHall().isEmpty()) //if list of breakfast dining hall is not empty,
+					menuItemList.add(menuItem);					  //add it to list that will show on the screen
+			}
+		}
+		
+		else if(mealTime.equals("lunch"))//put lunch menuItems into menuItemList
+		{
+			for(i=0; i<menuDatabase.getDatabaseSize();i++){
+				menuItem = menuDatabase.getMenuItem(i);
+				if (!menuItem.getLunchDiningHall().isEmpty()) //if list of lunch dining hall is not empty,
+					menuItemList.add(menuItem);					  //add it to list that will show on the screen
+			}
+		}
+		
+		else if(mealTime.equals("dinner"))//put dinner menuItems into menuItemList
+		{
+			for(i=0; i<menuDatabase.getDatabaseSize();i++){
+				menuItem = menuDatabase.getMenuItem(i);
+				if (!menuItem.getDinnerDiningHall().isEmpty()) //if list of dinner dining hall is not empty,
+					menuItemList.add(menuItem);					  //add it to list that will show on the screen
+			}
+		}
+		
+		//extra rows of menu
+		for(i=0; i<15; i++){
+			name = "Menu "+i;
+			menuItem = new MenuItem(name, favorite, breakfast, lunch, dinner, nutInfo);
+			menuItemList.add(menuItem);
+		}
+		
+		//Create Array Adapter
+		dataAdapter = new MyCustomAdapter(this,R.layout.listview_row, menuItemList);
+		ListView listView = (ListView) findViewById(R.id.listView1);
+		//Assign adapter to ListView
+		listView.setAdapter(dataAdapter);
+	
+		//I can add listener down here to make ListView respond to the click
+		
+	}
+	
+	
+	//Adapter is used to display information in the "List Format" onto the ListView Screen.
+	//Normal type like "String" is supported by default adapter but 
+	//I need to make custom adapter that can support MenuItem type of object.
+	class MyCustomAdapter extends ArrayAdapter<MenuItem>
+	{
+
+		private ArrayList<MenuItem> menuList;
+
+		public MyCustomAdapter(Context context, int resourceID,
+				ArrayList<MenuItem> newMenuList) 
+		{
+			super(context, resourceID, newMenuList);
+			this.menuList = new ArrayList<MenuItem>();
+			this.menuList.addAll(newMenuList);
+		}
+	
+		//This function is why we write custom adapter in the first place.
+		//We can design how to display on the screen using this function.
+		//For now, it only deal with the checkbox and checkbox text.
+		public View getView(int position, View convertView, ViewGroup parent) 
+		{
+	
+			View row=convertView;
+			MenuItem item = menuList.get(position);
+			//inflater are expensive, 20~30ms, checking for row==null, we can save some time
+			if (row==null){
+				LayoutInflater inflater=getLayoutInflater();
+				row=inflater.inflate(R.layout.listview_row, null);
+			}
+		
+			CheckBox checkbox = (CheckBox) row.findViewById(R.id.listview_row_checkbox);																 
+		
+			checkbox.setChecked(item.isFavorite());
+			checkbox.setText(item.getName());
+			Button info_button = (Button) row.findViewById(R.id.listview_row_button); 																 
+			
+			info_button.setTag(item.getName()); //let tag of button be name of menu so we can take appropriate response
+			//when button is clicked by looking at the tag
+
+
+			info_button.setOnClickListener(new View.OnClickListener()
+			{
+				@Override
+				public void onClick(View v) {
+					Button btn = (Button) v;
+					String menuName = (String) btn.getTag();
+					Bundle basket = new Bundle();
+					basket.putString("name", menuName);
+					Intent ToMenuInfo = new Intent (MealActivity.this, MenuInfoActivity.class);
+					ToMenuInfo.putExtras(basket);
+					startActivity(ToMenuInfo);
+				}			
+			});
+			return row;			
+		}
+
+	}
+
+
+    
+}
