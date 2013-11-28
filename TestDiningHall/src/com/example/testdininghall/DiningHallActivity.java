@@ -1,9 +1,9 @@
 package com.example.testdininghall;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-import com.example.testdininghall.MealActivity.MyCustomAdapter;
-
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -23,14 +23,14 @@ public class DiningHallActivity extends Activity implements OnClickListener{
 	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn, home_btn;
 	Button covelCommons_btn, deNeve_btn, bruinPlate_btn, reiber_btn, hedrick_btn;
 	MyCustomAdapter dataAdapter = null;
+	static MenuDatabase menuDatabase = new MenuDatabase(); 
+	getMenu task1 = new getMenu();
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dininghall);
-        displayListView("Covel Commons");
-        
-        
+        setContentView(R.layout.dininghall);        
+        task1.execute("Covel Commons");
         
         
         home_btn=(Button)findViewById(R.id.home_button);
@@ -160,8 +160,8 @@ public class DiningHallActivity extends Activity implements OnClickListener{
 		
 		MenuItem menuItem;
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();  //list to display on the screen
-		MenuDatabase menuDatabase = new MenuDatabase(); //fake database that return hard coded data
-		
+		ArrayList<MenuItem> menu = menuDatabase.getDatabase();
+
 		//Initial Information for the item object, we will need to read in from database in the future.
 		boolean favorite = false;
 		ArrayList<String> breakfast = null;
@@ -172,65 +172,54 @@ public class DiningHallActivity extends Activity implements OnClickListener{
 		
 		if(diningHall.equals("Covel Commons")) //put Covel Common's menu into menuItemList
 		{
-			for(i=0; i<menuDatabase.getDatabaseSize();i++){
-				menuItem = menuDatabase.getMenuItem(i);
+			for(MenuItem m : menu){
 				//if it contain Covel as dining hall offering this menu add it to list that will show on the screen
-				if (menuItem.getBreakfastDiningHall().contains("Covel") || 
-						menuItem.getLunchDiningHall().contains("Covel") || menuItem.getDinnerDiningHall().contains("Covel") ) 
-					menuItemList.add(menuItem);					 
+				if (m.getBreakfastDiningHall().contains("Covel") || 
+						m.getLunchDiningHall().contains("Covel") || m.getDinnerDiningHall().contains("Covel") ) 
+					menuItemList.add(m);					 
 			}
 		}
 		
 		else if(diningHall.equals("De Neve"))//put De neve's menu into menuItemList
 		{
-			for(i=0; i<menuDatabase.getDatabaseSize();i++){
-				menuItem = menuDatabase.getMenuItem(i);
-				//if it contain De Neve as dining hall offering this menu, add it to list that will show on the screen
-				if (menuItem.getBreakfastDiningHall().contains("De Neve") || 
-						menuItem.getLunchDiningHall().contains("De Neve") || menuItem.getDinnerDiningHall().contains("De Neve") ) 
-					menuItemList.add(menuItem);		
+			for(MenuItem m : menu){
+				//if it contain Covel as dining hall offering this menu add it to list that will show on the screen
+				if (m.getBreakfastDiningHall().contains("De Neve") || 
+						m.getLunchDiningHall().contains("De Neve") || m.getDinnerDiningHall().contains("De Neve") ) 
+					menuItemList.add(m);					 
 			}
 		}
 		
 		else if(diningHall.equals("Bruin Plate"))//put Bruin Plate's menu into menuItemList
 		{
-			for(i=0; i<menuDatabase.getDatabaseSize();i++){
-				menuItem = menuDatabase.getMenuItem(i);
-				//if it contain Bruin Plate as dining hall offering this menu, add it to list that will show on the screen
-				if (menuItem.getBreakfastDiningHall().contains("Bruin Plate") || 
-						menuItem.getLunchDiningHall().contains("Bruin Plate") || menuItem.getDinnerDiningHall().contains("Bruin Plate") ) 
-					menuItemList.add(menuItem);		
+			for(MenuItem m : menu){
+				//if it contain Covel as dining hall offering this menu add it to list that will show on the screen
+				if (m.getBreakfastDiningHall().contains("Bruin Plate") || 
+						m.getLunchDiningHall().contains("Bruin Plate") || m.getDinnerDiningHall().contains("Bruin Plate") ) 
+					menuItemList.add(m);					 
 			}
 		}
 		
 		else if(diningHall.equals("Reiber"))//put Reiber's menu into menuItemList
 		{
-			for(i=0; i<menuDatabase.getDatabaseSize();i++){
-				menuItem = menuDatabase.getMenuItem(i);
-				//if it contain Reiber as dining hall offering this menu, add it to list that will show on the screen
-				if (menuItem.getBreakfastDiningHall().contains("Reiber") || 
-						menuItem.getLunchDiningHall().contains("Reiber") || menuItem.getDinnerDiningHall().contains("Reiber") ) 
-					menuItemList.add(menuItem);		
+			for(MenuItem m : menu){
+				//if it contain Covel as dining hall offering this menu add it to list that will show on the screen
+				if (m.getBreakfastDiningHall().contains("Reiber") || 
+						m.getLunchDiningHall().contains("Reiber") || m.getDinnerDiningHall().contains("Reiber") ) 
+					menuItemList.add(m);					 
 			}
 		}
 		
 		else if(diningHall.equals("Hedrick"))//put Hedrick menu into menuItemList
 		{
-			for(i=0; i<menuDatabase.getDatabaseSize();i++){
-				menuItem = menuDatabase.getMenuItem(i);
-				//if it contain Hedrick as dining hall offering this menu, add it to list that will show on the screen
-				if (menuItem.getBreakfastDiningHall().contains("Hedrick") || 
-						menuItem.getLunchDiningHall().contains("Hedrick") || menuItem.getDinnerDiningHall().contains("Hedrick") ) 
-					menuItemList.add(menuItem);		
+			for(MenuItem m : menu){
+				//if it contain Covel as dining hall offering this menu add it to list that will show on the screen
+				if (m.getBreakfastDiningHall().contains("Hedrick") || 
+						m.getLunchDiningHall().contains("Hedrick") || m.getDinnerDiningHall().contains("Hedrick") ) 
+					menuItemList.add(m);					 
 			}
 		}
 		
-		//extra rows in the menu list
-		for(i=0; i<13; i++){
-			String name = "Menu "+i;
-			menuItem = new MenuItem(name, favorite, breakfast, lunch, dinner, nutInfo);
-			menuItemList.add(menuItem);
-		}
 		
 		//Create Array Adapter
 		dataAdapter = new MyCustomAdapter(this,R.layout.listview_row, menuItemList);
@@ -241,7 +230,27 @@ public class DiningHallActivity extends Activity implements OnClickListener{
 		//I can add listener down here to make ListView respond to the click
 		
 	}
-	
+	private class getMenu extends AsyncTask<String, Integer, String> {
+		boolean create = false;
+		@Override
+		protected String doInBackground(String... params) {
+			try {
+				if(!create){
+				menuDatabase.createMenu();
+				create = true;
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return params[0];
+		}
+		
+		@Override
+		protected void onPostExecute(String result){
+	        displayListView(result); //default is set to display breakfast page.
+		}
+        
+    }
 	
 	//Adapter is used to display information in the "List Format" onto the ListView Screen.
 	//Normal type like "String" is supported by default adapter but 

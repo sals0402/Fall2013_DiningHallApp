@@ -149,6 +149,7 @@ public class DiningHall {
 	    tidy.setShowWarnings(false);
         
 	    // Parse an HTML page into a DOM document
+        
 	    URL url = new URL("http://menu.ha.ucla.edu/foodpro/default.asp");
 	    Document doc = tidy.parseDOM(url.openStream(), System.out);
         
