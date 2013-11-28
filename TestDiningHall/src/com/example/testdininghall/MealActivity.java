@@ -1,16 +1,11 @@
 package com.example.testdininghall;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -26,17 +21,12 @@ public class MealActivity extends Activity implements OnClickListener{
 	Button diningHall_btn, meal_btn, allMenu_btn, favorite_btn, home_btn;
 	Button all_btn, breakfast_btn,lunch_btn,dinner_btn;
 	MyCustomAdapter dataAdapter = null;
-	static MenuDatabase menuDatabase = new MenuDatabase(); 
-	getMenu task = new getMenu();
-
 	
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-		task.execute("all");
-		
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meal);
+        displayListView("all"); //default is set to display breakfast page.
 
         home_btn=(Button)findViewById(R.id.home_button);
         diningHall_btn=(Button)findViewById(R.id.diningHall_button);
@@ -146,7 +136,7 @@ public class MealActivity extends Activity implements OnClickListener{
 		MenuItem menuItem;	
 		//list of items that will be display on the listView
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();	
-		ArrayList<MenuItem> menu = menuDatabase.getDatabase();
+		MenuDatabase menuDatabase = new MenuDatabase(); //fake database that return hard coded data
 		
 		//Initial Information for the item object, we will need to read in from database in the future.
 		String name = "";
@@ -160,34 +150,45 @@ public class MealActivity extends Activity implements OnClickListener{
 		
 		if(mealTime.equals("all"))
 		{
-			for(MenuItem m : menu){
-				menuItemList.add(m); //display all menu in the database to the screen	
+			for(i=0; i<menuDatabase.getDatabaseSize();i++){
+				menuItem = menuDatabase.getMenuItem(i);
+				menuItemList.add(menuItem); //display all menu in the database to the screen	
 			}
 		}
+		
 		else if(mealTime.equals("breakfast")) //put breakfast menuItems into menuItemList
 		{
-			for(MenuItem m : menu){
-				if (!m.getBreakfastDiningHall().isEmpty()) //if list of breakfast dining hall is not empty,
-					menuItemList.add(m);	 //display all menu in the database to the screen	  //add it to list that will show on the screen
+			for(i=0; i<menuDatabase.getDatabaseSize();i++){
+				menuItem = menuDatabase.getMenuItem(i);
+				if (!menuItem.getBreakfastDiningHall().isEmpty()) //if list of breakfast dining hall is not empty,
+					menuItemList.add(menuItem);					  //add it to list that will show on the screen
 			}
 		}
 		
 		else if(mealTime.equals("lunch"))//put lunch menuItems into menuItemList
 		{
-			for(MenuItem m : menu){
-				if (!m.getLunchDiningHall().isEmpty()) //if list of breakfast dining hall is not empty,
-					menuItemList.add(m);	 //display all menu in the database to the screen	  //add it to list that will show on the screen
+			for(i=0; i<menuDatabase.getDatabaseSize();i++){
+				menuItem = menuDatabase.getMenuItem(i);
+				if (!menuItem.getLunchDiningHall().isEmpty()) //if list of lunch dining hall is not empty,
+					menuItemList.add(menuItem);					  //add it to list that will show on the screen
 			}
 		}
 		
 		else if(mealTime.equals("dinner"))//put dinner menuItems into menuItemList
 		{
-			for(MenuItem m : menu){
-				if (!m.getDinnerDiningHall().isEmpty()) //if list of breakfast dining hall is not empty,
-					menuItemList.add(m);	 //display all menu in the database to the screen	  //add it to list that will show on the screen
+			for(i=0; i<menuDatabase.getDatabaseSize();i++){
+				menuItem = menuDatabase.getMenuItem(i);
+				if (!menuItem.getDinnerDiningHall().isEmpty()) //if list of dinner dining hall is not empty,
+					menuItemList.add(menuItem);					  //add it to list that will show on the screen
 			}
 		}
-
+		
+		//extra rows of menu
+		for(i=0; i<15; i++){
+			name = "Menu "+i;
+			menuItem = new MenuItem(name, favorite, breakfast, lunch, dinner, nutInfo);
+			menuItemList.add(menuItem);
+		}
 		
 		//Create Array Adapter
 		dataAdapter = new MyCustomAdapter(this,R.layout.listview_row, menuItemList);
@@ -199,29 +200,7 @@ public class MealActivity extends Activity implements OnClickListener{
 		
 	}
 	
-	private class getMenu extends AsyncTask<String, Integer, String> {
-		boolean create = false;
-		@Override
-		protected String doInBackground(String... params) {
-			try {
-				if(!create){
-				menuDatabase.createMenu();
-				create = true;
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return params[0];
-		}
-		
-		@Override
-		protected void onPostExecute(String result){
-	        displayListView(result); //default is set to display breakfast page.
-		}
-		
-
-        
-    }
+	
 	//Adapter is used to display information in the "List Format" onto the ListView Screen.
 	//Normal type like "String" is supported by default adapter but 
 	//I need to make custom adapter that can support MenuItem type of object.

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class MenuDatabase {
 	ArrayList<MenuItem> menuDatabase;
-	int dataBaseSize; //number of menuItem in the database
+	int dataBaseSize=0; //number of menuItem in the database
 	private static DiningHall hall;
 	
 	//default constructor

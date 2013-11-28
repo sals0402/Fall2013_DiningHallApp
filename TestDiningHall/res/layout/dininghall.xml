@@ -11,87 +11,19 @@
         android:layout_height="0dp"
         android:layout_weight="1" >
 
-        <Button
-            android:id="@+id/covelCommons_button"
+        <Spinner
+            android:id="@+id/dh_spinner"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.9"
-            android:background="#ff0079c9"
-            android:textColor="#ffffffff"
-            android:textSize="12sp"
-            android:text="Covel\nCommons" />
+            android:layout_weight="0.5" 
+            android:background="#fffdfd70"/>
 
-        <TextView
-            android:id="@+id/textView1"
+        <Spinner
+            android:id="@+id/meal_spinner"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.07"
-            android:background="#ff004a7b"
-            android:text="" />
-
-        <Button
-            android:id="@+id/deNeve_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.9"
-            android:background="#ff005187"
-            android:textColor="#ffffffff"
-            android:textSize="12sp"
-            android:text="De Neve" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.07"
-            android:background="#ff004a7b"
-            android:text="" />
-
-        <Button
-            android:id="@+id/reiber_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.9"
-            android:background="#ff005187"
-            android:textColor="#ffffffff"
-            android:textSize="12sp"
-            android:text="Feast\nat\nReiber" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.07"
-            android:background="#ff004a7b"
-            android:text="" />
-
-        <Button
-            android:id="@+id/bruinPlate_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.9"
-            android:background="#ff005187"
-            android:textColor="#ffffffff"
-           android:textSize="12sp"
-            android:text="Bruin\nPlate" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.07"
-            android:background="#ff004a7b"
-            android:text="" />
-
-        <Button
-            android:id="@+id/hedrick_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.9"
-            android:background="#ff005187"
-            android:textColor="#ffffffff"
-            android:textSize="10sp"
-            android:text="Test\nKitchen\nat\nHedrick" />
+            android:layout_weight="0.5"
+            android:background="#FFFFB2"/>
 
     </LinearLayout>
 
